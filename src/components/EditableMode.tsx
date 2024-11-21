@@ -12,11 +12,12 @@ const SInput = styled.input`
 type EditableSpanProp = {
     title: string;
     id: string;
-    changeTask: (id: string, title: string) => void;
+    changeTask: (id: string, title: string, checked: boolean) => void;
     removeTask: (id: string) => void;
+    checked: boolean;
 };
 
-const EditableMode: React.FC<EditableSpanProp> = ({ title, id, removeTask, changeTask }) => {
+const EditableMode: React.FC<EditableSpanProp> = ({ title, id, removeTask, changeTask, checked }) => {
     const [isEditMode, setEditMode] = useState(false);
     const [valueEdit, setValueEdit] = useState(title);
     const inputEl = useRef<HTMLInputElement | null>(null);
@@ -28,7 +29,7 @@ const EditableMode: React.FC<EditableSpanProp> = ({ title, id, removeTask, chang
     }, [isEditMode]);
 
     function editModeFalseHandler() {
-        changeTask(id, valueEdit);
+        changeTask(id, valueEdit, checked);
         setEditMode(false);
     }
 
@@ -46,7 +47,9 @@ const EditableMode: React.FC<EditableSpanProp> = ({ title, id, removeTask, chang
                     onChange={(e: React.ChangeEvent<HTMLInputElement>) => setValueEdit(e.target.value)}
                 />
             ) : (
-                <span style={{ fontSize: 26, fontWeight: 500 }}>{title}</span>
+                <span style={{ fontSize: 26, fontWeight: 500, textDecoration: checked ? 'line-through' : 'none' }}>
+                    {title}
+                </span>
             )}
             {isEditMode ? (
                 <div>

@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 
 const SButton = styled.button<{ $primary?: boolean }>`
     margin: 10px;
-    width: 80px;
+    min-width: 80px;
     padding: 10px;
     border: 2px solid #bd93f9;
     border-radius: 10px;
@@ -18,7 +18,7 @@ const SButton = styled.button<{ $primary?: boolean }>`
     ${props =>
         props.$primary &&
         css`
-            width: 200px;
+            max-width: 200px;
         `}
 `;
 
@@ -26,11 +26,12 @@ type ButtonProps = {
     title: string;
     $primary?: boolean;
     onClick?: () => void;
+    style?: {} | { backgroundColor: string };
 };
 
-const Button: React.FC<ButtonProps> = ({ title, $primary, onClick }) => {
+const Button: React.FC<ButtonProps> = ({ title, $primary, onClick, style }) => {
     return (
-        <SButton $primary={$primary} onClick={onClick}>
+        <SButton $primary={$primary} onClick={onClick} style={style}>
             {title}
         </SButton>
     );

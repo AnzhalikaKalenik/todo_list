@@ -2,7 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 
 const SInput = styled.input`
-    width: 518px;
+    display: flex;
+    width: 80%;
+    /* max-width: 518px; */
     padding: 10px;
     margin: 10px;
     border: 2px double #bd93f9;

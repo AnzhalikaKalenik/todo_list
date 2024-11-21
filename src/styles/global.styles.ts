@@ -20,7 +20,7 @@ body {
     padding: 1rem;
     box-sizing: border-box; //чтобы высота без скролла определилась
     display: flex;
-    align-items: center; //все что внутри центрируем
+    /* align-items: center; //все что внутри центрируем */
     justify-content: center;
 
     /* --background: #282a36;

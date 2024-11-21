@@ -65,18 +65,23 @@ function App() {
     }, [tasks]);
 
     function addTask(title: string) {
-        if (title !== '') {
+        if (title !== ' ' && title.trim()) {
             let newTask = { id: uuidv4(), title: title, completed: false };
             let newTasks = [newTask, ...tasks];
             setTasks(newTasks);
         }
     }
 
-    function changeTask(id: string, title: string) {
-        // let updatedTask = tasks.map(t => {
+    function changeTask(id: string, title: string, completed: boolean) {
+        // tasks.map((t: any) => {
         //     if (t.id === id) {
-        //         return { ...t, title: title };
+        //         return {
+        //             ...t,
+        //             title: title,
+        //             completed: t.title !== title ? false : t.completed,
+        //         };
         //     }
+
         //     return t;
         // });
         // setTasks([...tasks]);
@@ -86,7 +91,10 @@ function App() {
         //     task.title = title;
         // }
         // setTasks([...tasks]);
-        setTasks(tasks.map((t: any) => (t.id === id ? { ...t, title: title } : t)));
+
+        setTasks(
+            tasks.map((t: any) => (t.id === id && t.title !== title ? { ...t, title: title, completed: false } : t))
+        );
     }
 
     function changeStatus(id: string, completed: boolean) {
@@ -131,6 +139,7 @@ function App() {
             changeTask={changeTask}
             changeStatus={changeStatus}
             count={count}
+            filter={filter}
         ></TodoList>
     );
 }
