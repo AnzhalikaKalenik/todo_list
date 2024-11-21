@@ -57,7 +57,7 @@ export default function TodoList({
     const onComplitedClickHandler = () => changeFilter('Show Completed tasks');
 
     return (
-        <div style={{ maxWidth: 860 }}>
+        <div style={{ maxWidth: 560 }}>
             <Header />
             <div style={{ display: 'flex', maxWidth: 560 }}>
                 <InputTodo value={newTaskTitle} onChange={newTaskTitleChangeHandler} onKeyPress={onKeyPressHandler} />
