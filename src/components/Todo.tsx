@@ -10,26 +10,24 @@ type TodoProps = {
     removeTask: (id: string) => void;
 };
 
-const Todo: React.FC<TodoProps> = ({ tasks, changeStatus, changeTask, removeTask }) => {
-    return (
-        <>
-            {tasks.map(t => (
-                <li key={t.id} style={{ paddingLeft: 10 }}>
-                    <Checkbox
-                        checked={t.completed}
-                        onChange={(e: React.ChangeEvent<HTMLInputElement>) => changeStatus(t.id, e.target.checked)}
-                    />
+const Todo: React.FC<TodoProps> = ({ tasks, changeStatus, changeTask, removeTask }) => (
+    <>
+        {tasks.map(t => (
+            <li key={t.id} style={{ paddingLeft: 10 }}>
+                <Checkbox
+                    checked={t.completed}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => changeStatus(t.id, e.target.checked)}
+                />
 
-                    <EditableMode
-                        title={t.title}
-                        id={t.id}
-                        removeTask={removeTask}
-                        changeTask={changeTask}
-                        checked={t.completed}
-                    />
-                </li>
-            ))}
-        </>
-    );
-};
+                <EditableMode
+                    title={t.title}
+                    id={t.id}
+                    removeTask={removeTask}
+                    changeTask={changeTask}
+                    checked={t.completed}
+                />
+            </li>
+        ))}
+    </>
+);
 export default Todo;

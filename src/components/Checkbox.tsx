@@ -27,9 +27,6 @@ const SInput = styled.input`
         margin-left: 3px;
         content: '';
         display: block;
-        /* position: absolute;
-        top: 0;
-        left: 5px; */
         width: 3px;
         height: 8px;
         border: 3px solid transparent;
@@ -42,14 +39,7 @@ const SInput = styled.input`
 `;
 
 const Checkbox: React.FC<CheckboxProp> = ({ checked, onChange }) => {
-    return (
-        <SInput
-            type='checkbox'
-            // style={{ width: 20, height: 20, margin: 16 }}
-            checked={checked}
-            onChange={onChange}
-        ></SInput>
-    );
+    return <SInput type='checkbox' checked={checked} onChange={onChange}></SInput>;
 };
 
 export default Checkbox;

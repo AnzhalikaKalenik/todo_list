@@ -4,7 +4,6 @@ import styled from 'styled-components';
 const SInput = styled.input`
     display: flex;
     width: 80%;
-    /* max-width: 518px; */
     padding: 10px;
     margin: 10px;
     border: 2px double #bd93f9;
