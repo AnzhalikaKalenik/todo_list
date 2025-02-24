@@ -6,5 +6,5 @@ const Sh1 = styled.h1`
 `;
 
 export default function Header() {
-    return <Sh1>Todont</Sh1>;
+    return <Sh1>Todo</Sh1>;
 }
